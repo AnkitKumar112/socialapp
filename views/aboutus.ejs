@@ -1,0 +1,178 @@
+
+<!DOCTYPE html >
+<html lang="en">
+<head>
+	<title>TENSION TEMPO</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1421289961255909'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1421289961255909&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+</head>
+
+<body>
+
+<div class="background-container">
+<!--menu_section_start-->
+<header>
+<section id="home" class="menu">
+<div class="container">
+<div class="row">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="images/logo.png"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/">Home</a></li>
+			<li><a href="/order">Order</a></li>
+			<li class="active"><a href="/aboutus">About Us</a></li>
+			<%if (userName.length > 0) { %>
+				<li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="images/user.png"alt="#"/>Hello <span class="color"><%= userName; %></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/logout">LOGOUT</a></li>
+                    </ul>
+            <!--</li>			
+					<li><a href="#"><img src="images/user.png"alt="#"/>Hello <span class="color"><%= userName; %></span></a></li>
+					<li><a href="/logout"><span class="color">Logout</span></a></li>-->
+			
+			<% }else { %>
+					<li><a class="page-scroll" href="#" data-toggle="modal" data-target="#myModal">Login/Register</a></li>
+			<% } %>
+
+			
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</div>
+</div>
+</section>
+<section class="bg">
+  <div class="container">
+
+    <div class="row">
+	  <div class="col-md-6 col-md-offset-6 text-right">
+	     <img src="images/like_logo.png"  alt="#"/>
+		 <h3>Tension Tempo</h3>
+		 <p>5-15lbs of muscle in under 3 months. Guaranteed. </p>
+	  </div>
+	</div>
+  </div>
+</section>
+</header>
+<!--header-end-->
+<!--aboutus-start-->
+<section  id="about" class="content">
+  <div class="container">
+     <div class="row">
+	   <div class="col-sm-12 text-center content_box1 gap_upper">
+	      
+               <!-- <h1>About Tension Tempo </h1>
+                <p>With over 25 years of experience and certification from the Poliquin Group on Hypertrophic program design, the group at Tension Tempo rely on science created through real human effort. Using additional knowledge from programs used by celebrities to gain muscle fast, we have incorporated tried and proven hypertrophic principles throughout the program. Tension Tempo provides you with the tool to make it easy for you to fully benefit from time under tension principles by guiding you with the correct Tempo and Rest on your lifts through your own headphones - all while listening to your own music! Backed by a 100% money back guarantee after 90 days of use, you have nothing to lose and only muscle to gain.</p>			
+			  <p >To take advantage of our bonus offer, please send your before and after pictures, before and after weight, name, order date,<br> and any comments to<a href="mailto:results@tensiontempo.com" > results@tensiontempo.com</a> By submitting, you fully authorize Tension Tempo LLC to publish your pictures,<br> First name and last initial, comments and before and after bodyweight on our website for testimonial purposes.<br> To reach us for any other purpose, including our guarantee, please contact us at <a href="mailto:contact@tensiontempo.com" >contact@tensiontempo.com</a></p>-->
+			  <%- content %>
+	   </div>
+  </div>
+</section>
+<!--aboutus-end-->
+<div class="footer2" style="min-height: calc(100vh - 64px);">
+<div class="absolute">
+<section class="footer">
+   <div class="container">
+     <div class="row">
+	   <div class="col-md-7 gap_upper">
+	     <div class="gap_upper1">
+	   <br><br><br>
+	   <ul class="list-inline list-unstyled app-icon">
+		 <li><a href="#"><img src="images/app_store.png"/></a></li>
+		 <li><a href="#"><img src="images/google_app.png"/></a></li>
+		 </ul>
+		 </div>
+	   </div>
+	   <div class="col-md-4 col-md-offset-1  img_size">
+	     <div class="gap_upper2">   
+	     <img src="images/phone.png" alt="#"/>
+		 </div>
+	   </div>
+	 </div>
+    </div>
+</section>
+<!--footer-start-->
+
+
+<footer>
+<section class="footer_bottom">
+   <div class="container">
+     <div class="row">
+	   <div class="col-md-3 col-sm-3 col-xs-3">
+	     <img src="images/like_logo2.png" alt="#"/>
+	   </div>
+	   <div class="col-md-6 text-center col-sm-6 col-xs-9 text_right">
+	         <ul class="list-unstyled list-inline social-icon">
+	          <!--<li class="twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>-->
+			  <li class="facebook"><a target="_blank" href="http://www.facebook.com/tensiontempo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			  <!--<li class="pinterest"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>-->
+	        </ul>
+	   </div>
+	   <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+	     <p>Copyright © 2017  Tension Tempo. All rights reserved.</p>
+	   </div>
+	 </div>
+   </div>
+</section>
+</footer>
+<!--footer-end-->
+</div>
+</div>
+</div>
+<!--login-popup-modal-box-start-->
+<% include partials/footer.ejs %>
+
+<!---login-popup-modal-box-end-->
+<!--footer_end-->
+
+<!--animation-script-end-->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96184888-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<title>TENSION TEMPO</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1421289961255909'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1421289961255909&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+</head>
+
+<body>
+
+<div class="background-container">
+<!---Second_menu_section_start-->
+<section id="home" class="menu">
+<div class="container">
+<div class="row">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="images/logo.png"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a  href="/">Home</a></li>
+			<li class="active"><a  href="/order">Order</a></li>
+			<li><a  href="/aboutus">About Us</a></li>
+			<%if (userName.length > 0) { %>
+				<li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="images/user.png"alt="#"/>Hello <span class="color"><%= userName; %></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/logout">LOGOUT</a></li>
+                    </ul>
+            <!--</li>			
+					<li><a href="#"><img src="images/user.png"alt="#"/>Hello <span class="color"><%= userName; %></span></a></li>
+					<li><a href="/logout"><span class="color">Logout</span></a></li>-->
+			
+			<% }else { %>
+					<li><a class="page-scroll" href="#" data-toggle="modal" data-target="#myModal">Login/Register</a></li>
+			<% } %>
+
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</div>
+</div>
+</section>
+<!--Second_menu_section_end-->
+
+<div style="    min-height: calc(100vh);
+        display: table;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0; display: table; ">
+    <div style="display: table-cell; vertical-align: middle; text-align: center;">
+
+ <div style="height:300px; background: #000; width:670px; max-width:100%; margin:0 auto; padding:20px;text-align:center; box-shadow:2px 3px 5px #999;">
+   
+      	<% if(response.error) { %>
+            <div class="col-md-12">
+                <div class="alert  alert-danger  alert-success ">
+                    <strong> <%= response.message %></strong>
+                </div>       
+            </div>
+<% } else{ if (response.message=='Payment Successful.'){ %>
+         <img src="images/tick.png" alt="#"/>  			
+            <div class="col-md-12">
+                
+                  
+                     <p style="ont-family: first;
+    color: #fff;
+    font-size: 127%;margin-top: 10px;">Thank you for your order. Please download the correct app for your device below.
+
+<a target="_blank" href="https://play.google.com/store/apps/details?id=com.techugo.tensiontempo&hl=en">Play Store</a>&nbsp;&nbsp;<a target="_blank" href="https://itunes.apple.com/us/app/tension-tempo/id1276573007?ls=1&mt=8">Apple Store</a>
+<br><br>
+Please login with the same username and password you created on this site to access all of your purchased content.</p>
+                      
+            </div>
+         <% }else { %>	 
+            <div class="col-md-12" style="margin-top:15%;">
+                <div class="alert  alert-danger  alert-success ">
+                    <strong> <%= response.message %></strong>
+                </div>       
+            </div>
+<% } } %>
+
+
+		 <!--<h1 style="    color: #fa8520;
+    font-family: third;">Order Completed Successfully!</h1>
+		  <p style="color:#999; font-family:second; font-size: 138%;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>-->
+	
+
+ </div>
+</div>
+
+<!--footer-start-->
+<div class="absolute absolute2">
+<footer>
+<section class="footer_bottom">
+   <div class="container">
+     <div class="row">
+	   <div class="col-md-3 col-sm-3 col-xs-3">
+	     <img src="images/like_logo2.png" alt="#"/>
+	   </div>
+	   <div class="col-md-6 text-center col-sm-6 col-xs-9 text_right">
+           <ul class="list-unstyled list-inline social-icon">
+            <!--<li class="twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>-->
+          <li class="facebook"><a target="_blank" href="http://www.facebook.com/tensiontempo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <!--<li class="pinterest"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>-->
+          </ul>
+	   </div>
+	   <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+	     <p>Copyright © 2017  Tension Tempo. All rights reserved.</p>
+	   </div>
+	 </div>
+   </div>
+</section>
+</footer>
+</div>
+</div>
+</div>
+<!--footer-end-->
+</div>
+</div>
+<!--login-popup-modal-box-start-->
+ 	<% include partials/footer.ejs %>
+
+<script src="js/jquery.bxslider.js"></script>
+<script>
+$('#slider2').bxSlider({
+  auto: true,
+  autoControls: true,
+  pause: 3000,
+  slideMargin: 0
+});
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96184888-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!--animation-script-end-->
+</body>
+</html>

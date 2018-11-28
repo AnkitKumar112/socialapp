@@ -1,0 +1,290 @@
+<div class="modal fade  fade-scale" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog1">
+    <div class="modal-content model1">
+      <div class="modal-header">
+        <button type="button" id="login-signup"  class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+       <div class="modal-body">
+	   <!--modal_login_start-->
+	   <div class="modal_login" id="div1">
+	    <div class="col-lg-9">
+		  <div class="col-md-12">
+         <h3>LOG IN <br> TO YOUR ACCOUNT</h3>
+         </div>
+         <div id="loginErrormsg"></div>
+	 	<form method="post" action="/login" id="form">
+         	<div class="col-md-12">
+            	<div class="form-group">
+			   		<input type="email" class="form-control" name="email" value="" id="email" size="40" required="" aria-required="true" aria-invalid="false" placeholder="Email">
+				</div>
+		 	</div>		 
+      	<div class="col-md-12">
+<div class="form-group">
+   <div class="input-group">
+            <input type="password" class="form-control" name="password" value="" id="password" size="40" required="" aria-required="true" aria-invalid="false" placeholder="password" />
+            <span class="input-group-addon"><input type="button" id="loginBTN" value="&#xf061"></input></span>
+            </div>
+     </div>	 	</div>
+		 <div class="col-md-12">
+		   <p><a href="#" id="click2">Forgot Password?</a></p>
+		   <h4><a href="#" id="click">OR CREATE NEW ACCOUNT</a></h4>
+		 </div>
+		 </form>
+       </div>
+	   </div>
+	   <!---modal_login_end-->
+	   <!--modal-register-start-->
+	   <div class="modal_register">
+	    <div class="col-lg-9">
+		  <div class="col-md-12">
+         <h3>REGISTER</h3>
+         <div id="signupErrormsg"></div>
+         </div>
+         <form method="post" action="/signup">
+		          <div class="col-md-12">
+            <div class="form-group">
+			   <input type="text" class="form-control alphaonly" id="sfullName" name="fullName" value="" size="50" required="" aria-required="true" aria-invalid="false" placeholder="Full Name">
+			</div>
+		 </div>
+         <div class="col-md-12">
+            <div class="form-group">
+			   <input type="email" class="form-control" id="semail" name="email" value="" size="40" required="" aria-required="true" aria-invalid="false" placeholder="Email">
+			</div>
+		 </div>
+          <div class="col-md-12">
+            <div class="form-group">
+			   <input type="password" class="form-control" id="spassword" name="Password" value="" size="40" required="" aria-required="true" aria-invalid="false" placeholder="Password">
+			</div>
+		 </div>		 
+          <div class="col-md-12">
+			<div class="form-group">
+			   <div class="input-group">
+			            <input type="password" class="form-control" id="sconfirm_password" name="confirm_password" value="" size="40" required="" aria-required="true" aria-invalid="false" placeholder="Confirm Password" />
+			            <span class="input-group-addon"><input type="button" id="signupBTN" name="signupBTN" value="&#xf061"></input></span>
+		            </div>
+			     </div>		 
+		     </div>
+
+		 <div class="col-md-12">
+		   <h4><a href="#" class="text-uppercase"> Already  Have An Account ? <span class="color" id="click4"> Login Here !</span></a></h4>
+		 </div>
+		 </form>
+       </div>
+	   </div>
+	  <!---->
+	  <!--forgot-password-start-->
+	   <div class="forgot-password">
+	    <div class="col-lg-9">
+		  <div class="col-md-12">
+         <h3>FORGOT<br> 
+          YOUR PASSWORD ?</h3>
+		  <p>PLease enter your registered email address to recover password.</p>
+         <div id="forgotErrormsg"></div>
+         </div>
+		 <form method="post">
+         <div class="col-md-12">
+            <div class="form-group">
+			   <input type="email" class="form-control" name="forgotEmail" id="forgotEmail" value="" size="40" required="" aria-required="true" aria-invalid="false" placeholder="Email">
+			</div>
+		 </div>		 
+		 <div class="col-md-12">
+		   <button type="button" id="forgotBTN" class="btn btn-primary">SEND MAIL</button>
+		 </div>
+		 <div class="col-md-12">
+		 	<h5 id="click5">Back to Login</h5>
+		 </div>
+		 </form>
+       </div>
+	   </div>
+	  <!---forgot-password-end-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="js/jquery.js"></script> 
+<!---scrolling-menu-script-start-->
+
+<!--Code to send ajax requst for login action --> 
+<script>
+    $('#loginBTN').click(function () {
+    	$("#loginErrormsg").html("");
+	    var user_email = $('#email').val();
+	    var pwd = $('#password').val();
+	    if(user_email=="" || pwd==""){
+            $("#loginErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>&nbsp&nbsp;&nbsp&nbsp;Please fill the below fields.<br></font>"); //error message..
+	    }
+	    else{
+		      $.ajax({
+		          type:"POST",
+		          url:"/login",
+		          data:{email:user_email,password:pwd},
+		          success: function(response){
+		          	$('#password').val('');
+		            if(response == 200){
+		                window.location.href="/dashboard";
+		            } else {
+		                $("#loginErrormsg").html("<font style='margin-left:10%; font-size:16px;' color='white'>Please enter valid credentials</font>"); //error message..
+		            }
+		          }
+	      	});    
+	    }
+  	});
+</script>
+<!-- Code to send ajax request for forgot password -->
+<script>
+    $('#forgotBTN').click(function () {
+	    var forgotEmail = $('#forgotEmail').val();
+	    if(forgotEmail==""){
+            $("#forgotErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>&nbsp&nbsp;Please enter your email.<br></font>"); //error message..
+	    }
+	    else{
+	  		$.ajax({
+	          type:"POST",
+	          url:"forgotPassword",
+	          data:{email:forgotEmail},
+	          success: function(response){
+	          	$('#forgotEmail').val('');
+	            if(response == 200){
+	                $("#forgotErrormsg").html("<font style='font-size:14px; margin-top:-15px;' color='white'>We have sent you a mail. Please follow the link send over entered email.</font>"); //error message..
+	            } else {
+	                $("#forgotErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>Entered email does not exist. Please enter correct email.</font>"); //error message..
+	            }
+	          }
+	      	}); 
+	    }
+	       
+  	});
+</script>
+
+<!-- code for signup hit request -->
+<script>
+    $('#signupBTN').click(function () {
+    	$("#signupErrormsg").html("");
+    	var fullName = $('#sfullName').val();
+    	var email = $('#semail').val();
+    	var password = $('#spassword').val();
+	    var confirmPassword = $('#sconfirm_password').val();
+	    // code to check email format
+	    function isValidEmailAddress(emailAddress) {
+    		var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    		return pattern.test(emailAddress);
+		};
+
+
+	    if(fullName=="" || email=="" || password=="" || confirmPassword==""){
+            $("#signupErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>Please fill all the below fields.</font>"); //error message..
+	    }
+	    else if(password !=confirmPassword){
+            $("#signupErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>Password and Confirm Password not matching.</font>"); //error message..
+	    }
+	    else if(password.length < 6){
+            $("#signupErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>Password length should be atleast 6 character.</font>");
+	    }
+		else if(isValidEmailAddress(email)==false){
+            $("#signupErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>Please enter valid email.</font>"); //error message..
+		}
+	    else{
+		    //alert(forgotEmail);
+	        $.ajax({
+	          type:"POST",
+	          url:"signup",
+	          data:{name:fullName,email:email,password:password},
+	          success: function(response){
+	          	$('#sfullName').val('');
+	          	$('#semail').val('');
+          		$('#spassword').val('');
+          		$('#sconfirm_password').val('');
+	            if(response == 404){
+	                $("#signupErrormsg").html("<font style='font-size:14px; margin-top:-15px;' color='white'>Entered email is already registered.</font>"); //error message..
+	            }
+	            else if(response == 200){
+	                //window.location.href="/dashboard";
+                	$("#signupErrormsg").html("<font style='font-size:14px; margin-top:-15px;' color='white'>Verification email sent to the entered email. Please follow link to complete registration.</font>"); //error message..
+	            } else {
+	                $("#signupErrormsg").html("<font style='font-size:14px;margin-top:-15px;' color='white'>Request failed. Please try again later.</font>"); //error message..
+	            }
+	          }
+      	});    
+	    }
+  	});
+</script>
+
+<script type="text/javascript">
+$('.alphaonly').bind('keyup blur',function(){ 
+    var node = $(this);
+    node.val(node.val().replace(/[^a-z A-Z]/g,'') ); }
+);
+</script>
+
+<script>
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// Highlight the top nav as scrolling occurs
+$('body').scrollspy({
+    target: '.navbar-fixed-top'
+})
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+</script>
+<!--scrolling-menu-script-start-->
+
+<script>
+$(document).ready(function() {
+$(".modal_register").hide();
+  $("#click").click(function() {
+    $(".modal_login").hide();
+    $(".modal_register").show();
+  });
+});
+</script>
+<script>
+$(document).ready(function() {
+$(".forgot-password").hide();
+  $("#click2").click(function() {
+    $(".modal_login").hide();
+    $(".forgot-password").show();
+  });
+});
+</script>
+<script>
+$(document).ready(function() {
+  $("#click4").click(function() {
+    $(".modal_register").hide();
+    $(".modal_login").show();
+  });
+});
+</script>
+<script>
+$(document).ready(function() {
+  $("#click5").click(function() {
+    $(".forgot-password").hide();
+    $(".modal_login").show();
+  });
+});
+
+$(document).ready(function() {
+  $("#login-signup,.modal-backdrop").click(function() {
+      $(".forgot-password").hide();
+          $(".modal_register").hide();
+           $(".modal_login").show();
+             });
+         });
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+<!--animation-script-start-->

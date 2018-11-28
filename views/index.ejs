@@ -1,0 +1,260 @@
+
+<!DOCTYPE html >
+<html lang="en">
+<head>
+	<title>TENSION TEMPO</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1421289961255909'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1421289961255909&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+</head>
+
+<body>
+
+<div class="background-container">
+<!--menu_section_start-->
+<header>
+<section id="home" class="menu">
+<div class="container">
+<div class="row">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="images/logo.png"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="/">Home</a></li>
+			<li><a href="/order">Order</a></li>
+			<li><a href="/aboutus">About Us</a></li>
+			<%if (userName.length > 0) { %>
+				<li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="images/user.png"alt="#"/>Hello <span class="color"><%= userName; %></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/logout">LOGOUT</a></li>
+                    </ul>
+            <!--</li>			
+					<li><a href="#"><img src="images/user.png"alt="#"/>Hello <span class="color"><%= userName; %></span></a></li>
+					<li><a href="/logout"><span class="color">Logout</span></a></li>-->
+			
+			<% }else { %>
+					<li><a class="page-scroll" href="#" data-toggle="modal" data-target="#myModal">Login/Register</a></li>
+			<% } %>
+
+			
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</div>
+</div>
+</section>
+<section class="bg">
+  <div class="container">
+
+    <div class="row">
+	  <div class="col-md-6 col-md-offset-6 text-right">
+	     <img src="images/like_logo.png"  alt="#"/>
+		 <h3>Tension Tempo</h3>
+		 <p>5-15lbs of muscle in under 3 months. Guaranteed.</p>
+	  </div>
+	</div>
+  </div>
+</section>
+</header>
+<!--header-end-->
+<!--aboutus-start-->
+<
+	  <section  id="about" class="content">
+  <div class="container">
+     <div class="row">
+	   <div class="col-sm-12 text-center content_box1 gap_upper">
+	      <h1>STOP WASTING YOUR TIME. </h1>
+                <!--<p>The majority of people at any gym are missing out on a vital part of every workout: 
+				THE TEMPO. Knowing how long to lower the weight, how long to pause, how long to 
+				raise the weight, and how long to pause before repeating, along with the rest interval 
+				between sets will make the difference between going through the motions and 
+				making huge gains.</p>	
+				<p>OK - I'm going to be honest. I work out to not only feel good mentally and have 
+					physical capability, but also to look good. There I said it. I like how I look better when 
+					I'm in shape. The opposite sex does too. This program is the quick way to build 
+					quality muscle fast. The same methods Hollywood A-listers use to gain ridiculous 
+					muscle for their movies is made simple to follow in our program. Our solution not 
+					only includes a full workout guide utilizing hypertrophic principles established by the 
+					world's leaders in strength training, but also an app (Android and iPhone) that will tell 
+					you what the exercise is, when to raise, when to lower, when to pause, and when to 
+					rest. But who wants to hear a pre-recorded coach with some cheesy music you've 
+					never heard? We don't either. </p>	
+                <p>Our app will play simultaneously with Spotify, Pandora, etc., so you can choose the 
+				music you like. If you can only do 6 reps instead of 8, you easily skip to the rest 
+				interval - no problem. </p>
+                <p>Our goal is for you to have a guided, muscle blasting workout in less than an hour to 
+				help you achieve the max gains for any body type. If you aren't satisfied after 90 days, 
+				we will provide you a FULL refund - no questions asked. We are that confident in this 
+				program. </p>		-->
+				<%- content; %>		
+			  
+	   </div>
+	   <div class="col-sm-12 text-center gap_upper_new">
+		      <button onclick="window.location='/order'" type="button" class="btn btn-warning btn-lg">Get Started</button>
+		  </div>
+	    </div>
+  </div>
+	   <div class="black_bg">
+		  <div class="container">
+		 <div class="row">
+		 <div class="col-sm-12 text-center header-text_bottom gap_upper">
+			<h1><span class="color">What's included: </span></h1>
+		 </div>
+		 </div>
+		 </div>
+       </div>
+	   <div class="container">
+	      <div class="row">
+		    <div class="col-md-4">
+		    <div class="text-center">
+			  <h2>The Workouts </h2>
+			  </div>
+			  <ul class="list-unstyled high">
+			   <li> 3 Days Per Week Program </li> 
+			   <li>  Multiple phase 
+               workouts to capitalize on Hypertrophy </li>
+			   <li>Exercise guide for 
+					reference on how to 
+					perform each 
+					movement  </li>
+			  </ul>
+			</div>
+			<div class="col-md-4">
+			 <div class="text-center">
+			  <h2>The Coach </h2>
+			  </div>
+			  <ul class="list-unstyled high2 high">
+			   <li> Custom mobile app 
+				with audio coach for 
+				EVERY workout - 
+				turning your workout 
+				into a timed science. </li> 
+			   <li>Play your own music 
+                simultaneously  </li>
+			   <li>Skip to the next 
+                set /exercise  </li>
+			  </ul>
+			</div>
+			<div class="col-md-4">
+			 <div class="text-center">
+			  <h2>The Eating Guide  </h2>
+			  </div>
+			  <ul class="list-unstyled high">
+			   <li>Taking the guesswork 
+					out of eating for 
+					maximum lean mass  </li> 
+			   <li>"Keep it Simple" Eating Guide  </li>
+			  </ul>
+			</div>
+		  </div>
+	   </div>
+	  
+	
+</section>
+	
+
+<!--aboutus-end-->
+<div class="footer2" style="min-height: calc(100vh - 64px);">
+<div class="absolute">
+<section class="footer">
+   <div class="container">
+     <div class="row">
+	   <div class="col-md-7 gap_upper">
+	     <div class="gap_upper1">
+	   <!--<h5>Let the <br>magic happen!!!</h5>-->
+	   <br><br><br>
+	   <ul class="list-inline list-unstyled app-icon">
+		 <li><a target="_blank" href="https://itunes.apple.com/us/app/tension-tempo/id1276573007?ls=1&mt=8"><img src="images/app_store.png"/></a></li>
+		 <li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.techugo.tensiontempo&hl=en"><img src="images/google_app.png"/></a></li>
+		 </ul>
+		 </div>
+	   </div>
+	   <div class="col-md-3 col-md-offset-2  img_size">
+	     <div class="gap_upper2">   
+	     <img src="images/phone.png" alt="#"/>
+		 </div>
+	   </div>
+	 </div>
+    </div>
+</section>
+<!--footer-start-->
+
+
+<footer>
+<section class="footer_bottom">
+   <div class="container">
+     <div class="row">
+	   <div class="col-md-3 col-sm-3 col-xs-3">
+	     <img src="images/like_logo2.png" alt="#"/>
+	   </div>
+	   <div class="col-md-6 text-center col-sm-6 col-xs-9 text_right">
+	         <ul class="list-unstyled list-inline social-icon">
+	          <!--<li class="twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>-->
+			  <li class="facebook"><a target="_blank" href="http://www.facebook.com/tensiontempo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			  <!--<li class="pinterest"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>-->
+	        </ul>
+	   </div>
+	   <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+	     <p><a href="/privacy-policy">Privacy Policy</a>&nbsp;&nbsp;Copyright © 2017  Tension Tempo. All rights reserved.</p>
+	   </div>
+	 </div>
+   </div>
+</section>
+</footer>
+<!--footer-end-->
+</div>
+</div>
+</div>
+<!--login-popup-modal-box-start-->
+<% include partials/footer.ejs %>
+
+<!---login-popup-modal-box-end-->
+<!--footer_end-->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96184888-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
