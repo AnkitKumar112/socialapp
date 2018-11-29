@@ -517,8 +517,21 @@ let updateUserDevicetoken = (criteria, dataToSet, callback) => {
 let notification = (criteria, dataToSet, callback) => {
     let conditions = ""
     let deviceToken = ""
-    criteria.userId ? conditions += ` and userId = '${criteria.userId}'` : true;
-    dbConfig.getDB().query("insert into notifications set ? ", dataToSet, callback);
+    dbConfig.getDB().query(`select userName ,(select text from post where postId = '${dataToSet.postId}')as text from user where userId = '${dataToSet.triggeringUserId}'`,(err,data)=>{
+        if(err) { callback(err,data)}
+        let msg = ""
+        switch(dataToSet.type){
+            case '1': msg = data[0].userName+ " likes your post."; break;
+            case '2': msg = data[0].userName+ " reposted your post"; break;
+            case '3': msg = data[0].userName+ " commented on your post"; break;
+            case '4': msg = data[0].userName+ " started following you."; break;
+            case '5': msg = data[0].userName+ " "+ data[0].text; break;
+            case '6': msg = data[0].userName+ " mentioned you."; break;
+            default:msg=""; 
+        }
+        dataToSet.message = msg
+        dbConfig.getDB().query("insert into notifications set ? ", dataToSet, callback);
+    })
 
 }
 
@@ -556,7 +569,7 @@ let notificationList = (criteria, callback) => {
     criteria.receivingUserId ? conditions += ` and receivingUserId = '${criteria.receivingUserId}'` : true;
     criteria.notificationId ? conditions += ` and notificationId = '${criteria.notificationId}'` : true;
     dbConfig.getDB().query(`SELECT notificationId,receivingUserId,
-    triggeringUserId,type,postId,seen,
+    triggeringUserId,type,postId,seen,message,
     (select userName from user where userid = receivingUserId) as receivingUserName,
     (select userName from user where userid = triggeringUserId) as triggeringUserName,
     (select userImage from user_info where userid = triggeringUserId) as triggeringUserImage,
